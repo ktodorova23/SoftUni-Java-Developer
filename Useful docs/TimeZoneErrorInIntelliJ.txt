@@ -1,0 +1,14 @@
+Заявка за избягване на ServerTimeError в IntelliJ при свързване с MySQL:
+1. В самата конекция се сет-ва server time да бъде "UTC";
+2. Въвеждаме си user: root, password: 1234 - connect-ваме се.
+3. Ще ни излезе грешка въпреки това: "db_name@localhost: java.lang.RuntimeException: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The server time zone value 'Ôèí ... more"
+В конзолата на DB въвеждаме следната заявка, за да ни отстрани тази грешка:
+ SET GLOBAL time_zone = '+2:00';
+ 
+ Re-connect-ваме се към DB и сме готови :) 
+ 
+ 
+ Опция 2 е всеки път към connection URL-a да дописваме следното:
+ ?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+ 
+ Connection URL: "jdbc:mysql://localhost:3306/"

@@ -1,0 +1,4 @@
+TINYBLOB   : L < 2^8  =           256 Bytes
+BLOB       : L < 2^16 =        65,536 Bytes
+MEDIUMBLOB : L < 2^24 =    16,777,216 Bytes
+LONGBLOB   : L < 2^32 = 4,294,967,296 Bytes
